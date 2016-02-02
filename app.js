@@ -11,7 +11,7 @@ const my_service = require("multicolour")
 
   // Seed the database with random data based on
   // your blueprints.
-my_service.use(require("multicolour-seed"));
+//my_service.use(require("multicolour-seed"));
 
   // Register the auth plugin to the server.
 my_service.get("server")

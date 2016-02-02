@@ -33,12 +33,21 @@ module.exports = {
       development: require("sails-postgresql")
     },
     connections: {
-        adapter: "development",
-        host: "localhost",
-        port: 5432,
-        user: 'postgres',
-        password: '',
-        database: "tw"
+        development: {
+            adapter: "development",
+            host: "localhost",
+            port: 5432,
+            user: 'postgres',
+            password: '',
+            database: "tw",
+            // you can override adapter default options
+            defaults: {
+                //safe - not create tables, alter - auto-migrate columns/fields,
+                //drop - drop and rebuild on every run
+                migrate: 'alter',
+            }
+        },
+
     }
   }
 }
