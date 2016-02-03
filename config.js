@@ -44,7 +44,7 @@ module.exports = {
             defaults: {
                 //safe - not create tables, alter - auto-migrate columns/fields,
                 //drop - drop and rebuild on every run
-                migrate: 'alter',
+                migrate: 'drop',
             }
         },
 

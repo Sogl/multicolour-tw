@@ -16,7 +16,24 @@ module.exports = {
       required: true,
       type: "string",
       minLength: 5
-    }
+    }, /*
+
+    userId: {
+        type: "integer",
+        min: 0,
+        max: 9000
+    },*/
+
+    /*
+     * An example also has a user.
+     */
+    user: {
+      columnName: 'userId',
+      type: 'integer',
+      foreignKey: true,
+      references: 'user',
+      on: 'id'
+    },
   },
 
   // Before we create anything, make sure
