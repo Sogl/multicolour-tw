@@ -1,44 +1,62 @@
 "use strict";
 
 module.exports = {
-  attributes: {
-    name: {
-      required: true,
-      type: "string"
-    },
-    age: {
-      required: true,
-      type: "integer",
-      min: 0,
-      max: 9000
-    },
-    password: {
-      required: true,
-      type: "string",
-      minLength: 5
-    }, /*
+    attributes: {
+        id: {
+            primaryKey: true,
+            type: 'integer',
+            autoIncrement: true
+        },
+        locale: {
+            type: "string",
+            defaultsTo: '""',
+            notNull: true
+        },
+        emailVerified: {
+            type: "boolean",
+            defaultsTo: false
+        },
+        birthday: "date",
 
-    userId: {
-        type: "integer",
-        min: 0,
-        max: 9000
-    },*/
+
+        /*name: {
+          required: true,
+          type: "string"
+        },
+        age: {
+          required: true,
+          type: "integer",
+          min: 0,
+          max: 9000
+        },
+        password: {
+          required: true,
+          type: "string",
+          minLength: 5
+        },*/
+
+        /*userId: {
+            type: "integer",
+            min: 0,
+            max: 9000
+        },*/
+
+        /*
+         * An example also has a user.
+         */
+        user: {
+          columnName: 'userId',
+          type: 'integer',
+          foreignKey: true,
+          references: 'user',
+          on: 'id'
+        },
+    },
 
     /*
-     * An example also has a user.
-     */
-    user: {
-      columnName: 'userId',
-      type: 'integer',
-      foreignKey: true,
-      references: 'user',
-      on: 'id'
-    },
-  },
-
-  // Before we create anything, make sure
-  // to hash the password for security.
-  beforeCreate: (values, next) => {
+    // Before we create anything, make sure
+    // to hash the password for security.
+    beforeCreate: (values, next) => {
     // Get the crypto library.
     const crypto = require("crypto");
 
@@ -51,5 +69,5 @@ module.exports = {
 
     // Move on.
     next();
-  }
+    }*/
 }
